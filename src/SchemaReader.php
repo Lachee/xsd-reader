@@ -430,6 +430,9 @@ class SchemaReader
             if ($childNode->hasAttribute('form')) {
                 $element->setQualified($childNode->getAttribute('form') == 'qualified');
             }
+            if ($childNode->hasAttribute('optional')) {
+                $element->setOptional($childNode->getAttribute('optional') == 'true');
+            }
         } else {
             $element = $this->loadElement(
                 $elementContainer->getSchema(),
@@ -1382,6 +1385,9 @@ class SchemaReader
         }
         if ($node->hasAttribute('form')) {
             $element->setQualified($node->getAttribute('form') == 'qualified');
+        }        
+        if ($node->hasAttribute('optional')) {
+            $element->setOptional($node->getAttribute('optional') == 'true');
         }
 
         $parentNode = $node->parentNode;

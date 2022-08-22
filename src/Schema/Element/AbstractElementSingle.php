@@ -34,6 +34,11 @@ class AbstractElementSingle extends Item implements ElementSingle
     protected $nil = false;
 
     /**
+     * @var bool
+     */
+    protected $optional = false;
+
+    /**
      * @var string|null
      */
     protected $default = null;
@@ -66,6 +71,16 @@ class AbstractElementSingle extends Item implements ElementSingle
     public function setNil(bool $nil): void
     {
         $this->nil = $nil;
+    }
+
+    public function isOptional(): bool 
+    {
+        return $this->optional;
+    }
+
+    public function setOptional(bool $optional): void 
+    {
+        $this->optional = $optional;
     }
 
     public function getMin(): int
